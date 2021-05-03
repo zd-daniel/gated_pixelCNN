@@ -103,7 +103,7 @@ class down_shifted_conv2d(nn.Module):
 class down_shifted_deconv2d(nn.Module):
     '''
     涉及到当前点上方像素的反卷积上采样
-    nn.ConvTranspose2d的output_size=(in * stride - 1) + (kernel - padding - 1) + out_padding
+    nn.ConvTranspose2d的output_size=(in * stride - 1) + (kernel - 2*padding - 1) + 2*out_padding
     '''
     def __init__(self, num_filters_in, num_filters_out, filter_size=(2, 3), stride=(1, 1)):
         super(down_shifted_deconv2d, self).__init__()
